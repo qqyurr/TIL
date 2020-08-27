@@ -1,5 +1,7 @@
 [TOC]
 
+알고리즘 문제 풀이를 정리합니다
+
 ## [D2](https://github.com/qqyurr/TIL/tree/master/morgorithm/D2)
 
 | 문제번호 | 문제                                                         |
