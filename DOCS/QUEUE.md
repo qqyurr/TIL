@@ -20,7 +20,7 @@ DFS -> Stack
 
 : 인접한 정점들을 탐색한 후, 차례로 너비 우선 탐색을 진행해야 하므로, 선입선출 형태의 자료구조인 큐 활용
 
-```]
+```python
 def BFS(G,v): # 그래프 G, 탐색시작점 v
 	visited = [0]*n #n:정점의개수
 	queue = [] # 큐 생성
@@ -33,6 +33,24 @@ def BFS(G,v): # 그래프 G, 탐색시작점 v
 		for i in G[t]: # t와 연결된 모든 선에 대해
 			if not visited[i]: # 방문되지 않은 곳이라면
 				queue.append(i) # 큐에 넣기
+```
+
+```python
+def BFS(G,s): # 그래프 G 탐색 시작점 s
+    visited = [0]*n # n: 정점의 개수
+    D = [0]*n
+    P = [0]*n
+    Q = [] # 큐 생성
+    visited[s] = True # 시작점 방문
+    Q.append(s) # 시작점 s를 큐에 삽입
+    while Q : # 큐가 비어있지 않은 경우
+        v = Q.pop(0) # 큐의 첫 번째 원소 반환
+        for w in G[v]: # v와 연결된 모든 선에 대해
+            if not visited[w]: # 방문되지 않은 곳이라면
+                visited[w] = True
+                D[w] = D[v] +1
+                P[w] = v
+                Q.append(w) # 큐에 넣기
 ```
 
 
