@@ -20,8 +20,8 @@ Sherlock considers a string to be *valid* if all characters of the string appear
 
    -> 길이가 2인 경우
 
-   ​     -> 1이 1개면 = `anagram`
+   ​       - 1이 1개면 = `anagram`
 
-   ​	 -> 두 숫자의 차이가 1이고 큰 숫자가 1개면 `anagram`
+   ​	     - 두 숫자의 차이가 1이고 큰 숫자가 1개면 `anagram`
 
    -> else  `anagram` 이 아닙니다.
