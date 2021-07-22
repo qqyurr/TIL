@@ -13,7 +13,7 @@
   - 잘 알려진 피보나치 풀이법은 재귀함수지만 재귀함수를 사용하면 숫자가 커질 수록 계산해야하는 횟수도 많아진다. -> 오버플로우 발생
   - 동적 계획법을 사용하면 이전의 계산 결과를 다시 이용하면서 계산하는 횟수가 줄어들게 되고 보다 효율적으로 계산을 할 수 있다. 
 
-![image-20200920224343887](Dynamic Programming.assets/image-20200920224343887.png)
+![image-20200920224343887](./Dynamic Programming.assets/image-20200920224343887.png)
 
 ### 다이나믹 프로그래밍 알고리즘 적용 조건
 
@@ -39,7 +39,7 @@ def fibo(n):
 
 > 익숙한 피보나치 구하는 방법. 엄청난 중복 호출 존재
 
-![image-20200920224018406](Dynamic Programming.assets/image-20200920224018406.png)
+![image-20200920224018406](./Dynamic Programming.assets/image-20200920224018406.png)
 
 #### ii. Memoization을 이용한 피보나치
 
