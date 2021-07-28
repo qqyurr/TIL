@@ -44,5 +44,5 @@
 
 ## Algorithm
 
-[Algorithm 문제풀기](Algorithm)  
+[Algorithm 문제풀기](algorithm)  
 
