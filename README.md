@@ -41,6 +41,7 @@
 ## React
 
 1. [hooks](React/hooks.md)
+2. [useMemo/useCallback/React.memo()](React/momization.md)
 
 ## Algorithm
 
