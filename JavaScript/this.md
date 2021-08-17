@@ -227,3 +227,67 @@ const obj = {
 
 obj.foo();
 ```
+
+## 메서드 호출
+
+메서드 내부의 this에는 메서드를 호출한 객체, 메서드를 호출할 때 메서드 이름 앞의 마침표 연산자 앞에 기술한 객체가 바인딩된다. `메서드를 소유한 객체가 아닌 메서드를 호출한 객체에 바인딩`된다. 
+
+```javascript
+const person = {
+  name: "Lee",
+  getName() {
+    return this.name;
+  },
+};
+const anotherPerson = {
+  name: "Kim",
+};
+anotherPerson.getName = person.getName;
+
+// getName 메서드를 호출한 객체는 anotherPerson 이다.
+// 메서드를 소유한 객체가 아닌 메서드를 호출한 객체에 바인딩
+console.log(anotherPerson.getName()); // Kim
+
+const getName = person.getName;
+
+// 일반함수로 호출된 getName 함수 내부의 this.name은 브라우저 환경에서의 window.name과 같다.
+console.log(getName());
+
+```
+
+## 생성자 함수 호출
+
+```javascript
+// 생성자 함수
+function Circle(radius) {
+  // 생성자 함수 내부의 this는 미래에 생성할 인스턴스를 가리킨다.
+  this.radius = radius;
+  this.getDiameter = function () {
+    return 2 * this.radius;
+  };
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(circle1.getDiameter());
+console.log(circle2.getDiameter());
+```
+
+생성자 함수 : 일반함수와 동일하게 정의, new 연산자와 함께 호출하면 해당 함수는 생성자 함수로 동작.
+
+```javascript
+const circle3 = Circle(15); // 일반적인 함수의 호출
+
+console.log(circle3); // undefined , 일반함수로 호출된 Circle에는 반환문이 없다.
+
+console.log(radius); // 15 일반함수로 호출된 circle의 내부의 this는 전역 객체를 가리킨다.
+```
+
+| 함수 호출 방식                     | this 바인딩                          |
+| ---------------------------------- | ------------------------------------ |
+| 일반 함수 호출                     | 전역 객체                            |
+| 메서드 호출                        | 메서드를 호출한 객체                 |
+| 생성자 함수 호출                   | 생성자 함수가 미래에 생성할 인스턴스 |
+| Function.prototype.apply/call/bind | 첫번째 인수로 전달한 객체            |
+
