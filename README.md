@@ -39,6 +39,7 @@
 3. [this](JavaScript/this.md)
 4. [Scope, Scope Chain](JavaScript/스코프.md)
 5. [실행컨텍스트(Execution Context)](JavaScript/실행컨텍스트(ExecutionContext).md)
+6. [JS Summary](JavaScript/JSsummary.md)
 
 ## React
 
