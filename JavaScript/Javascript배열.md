@@ -93,3 +93,70 @@ console.log(arr) // [1,3]
 console.log(arr.length) // 2
 ```
 
+- 배열 메서드
+
+```javascript
+arr.push(2); // 원본 배열 직접 변경
+const result = arr.concat(3); // 원본 배열을 직접 변경하지 않고 새로운 배열을 생성하여 반환
+Array.isArray() // 전달된 인수가 배열이면 true, 배열이 아니면 false를 반환
+arr.indexOf(2); // 배열 내에 요소가 있으면 인덱스 반환, 없으면 -1 반환
+arr.indexOf(2,2); // 두 번째 인수는 검색을 시작할 인덱스
+arr.includes()// ES7에서 indexOf 메서드 대신 도입
+```
+
+#### Array.prototype.push
+
+```javascript
+arr.push(); // 원본 배열 직접 변경
+
+// push 메서드는 성능 면에서 좋지 않다. 추가할 요소가 하나뿐이라면 length 프로퍼티를 이용하여 배열의 마지막에 요소를 직접 추가할 수도 있다. 이게 push 메서드보다 빠르다.
+arr[arr.length] = 3;
+
+// push 메서드는 원본 배열을 직접 변경하는 부수 효과가 있다. 따라서 push 메서드보다는 ES6의 스프레드 문법을 사용하는 편이 좋다.
+const arr = [1,2]
+const newArr = [...arr, 3];
+console.log(newArr); [1,2,3]
+```
+
+#### Array.prototype.pop
+
+pop 메서드는 원본 배열에서 마지막 요소를 제거하고 제거한 요소를 반환한다. 원본 배열이 빈 배열이면 undefined를 반환
+
+#### pop과 push를 이용해 스택을 생성자 함수로 구현해보기
+
+```javascript
+const Stack = (function(){
+    fuction Stack(array=[]){
+        if(!Array.isArray(array)){
+            throw new TypeError(`${array} is not an array.`);
+        }
+        this.array = array;
+    }
+    Stack.prototype={
+        constructor: Stack,
+        // 스택의 가장 마지막에 데이터를 밀어넣는다.
+        push(value){
+            return this.array.push(value);
+        },
+        // 스택의 가장 마지막 데이터, 즉 가장 나중에 밀어넣은 최신 데이터
+        pop(){
+            return this.array.pop();
+        },
+        // 스택의 복사본 배열 반환
+        entries(){
+            return [...this.array];
+        }
+    };
+    return Stack;
+}());
+
+const stack = new Stack([1,2]);
+console.log(stack.entries()); // [1,2]
+
+stack.push(3);
+console.log(stack.entries()); // [1,2,3]
+
+stack.pop();
+console.log(stack.entries()); // [1,2]
+```
+
