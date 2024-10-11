@@ -1,3 +1,5 @@
+// [[-20,-15], [-14,-5], [-18,-13], [-5,-3]]
+
 function solution(routes) {
     let count = 0;
     let camera = -30001
